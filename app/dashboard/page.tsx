@@ -149,7 +149,7 @@ export default function DashboardPage() {
                   className="flex items-center justify-between rounded-lg px-3 py-2.5 hover:bg-accent transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="h-7 w-7 rounded-md bg-gradient-to-br from-violet-500/20 to-indigo-500/20 border border-violet-500/20 flex items-center justify-center text-xs font-bold text-violet-400">
+                    <div className="brand-avatar flex h-7 w-7 items-center justify-center rounded-md text-xs font-bold">
                       {team.name[0]}
                     </div>
                     <div>

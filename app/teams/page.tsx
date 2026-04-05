@@ -62,7 +62,7 @@ export default function TeamsPage() {
             <Card key={team.id} className="group overflow-hidden transition-colors hover:border-border/80">
               <CardContent className="p-0">
                 <div className="flex items-center gap-4 p-5">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-violet-500/20 bg-gradient-to-br from-violet-500/20 to-indigo-500/20 text-sm font-bold text-violet-400">
+                  <div className="brand-avatar flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl text-sm font-bold">
                     {team.name[0].toUpperCase()}
                   </div>
                   <div className="min-w-0 flex-1">

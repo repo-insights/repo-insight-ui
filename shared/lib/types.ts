@@ -44,14 +44,18 @@ export interface Plan {
   id: string;
   name: string;
   display_name: string;
+  plan_name?: string;
   permissions: string[];
   max_repos: number;
   max_members: number;
   description?: string;
+  price?: string;
   price_monthly?: number;
   price_yearly?: number;
+  button_text?: string;
   features?: string[];
   is_popular?: boolean;
+  sort_order?: number;
 }
 
 export interface Subscription {
@@ -59,6 +63,14 @@ export interface Subscription {
   tenant_id?: string;
   plan_id: string;
   plan_name: string;
+  description?: string;
+  button_text?: string;
+  features?: string[];
+  permissions?: string[];
+  max_repos?: number;
+  max_members?: number;
+  is_popular?: boolean;
+  sort_order?: number;
   status: "active" | "trialing" | "past_due" | "canceled";
   current_period_end: string | null;
   cancel_at_period_end: boolean;

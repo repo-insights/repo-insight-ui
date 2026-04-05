@@ -52,7 +52,11 @@ function PlanCard({
           </div>
           <CardTitle className="text-base">{planTitle}</CardTitle>
         </div>
-        {typeof plan.price_monthly === "number" ? (
+        {plan.price ? (
+          <div className="flex items-baseline gap-1">
+            <span className="text-3xl font-semibold">{plan.price}</span>
+          </div>
+        ) : typeof plan.price_monthly === "number" ? (
           <div className="flex items-baseline gap-1">
             <span className="text-3xl font-semibold">${plan.price_monthly}</span>
             <span className="text-muted-foreground text-sm">/mo</span>

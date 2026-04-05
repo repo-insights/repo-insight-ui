@@ -46,25 +46,3 @@ export const LANDING_WORKFLOW = [
       "Once you sign in, your dashboard becomes the home for teams, billing, settings, and everything else we add later.",
   },
 ];
-
-export const LANDING_PRICING = [
-  {
-    name: "Starter",
-    price: "Free",
-    description: "For individuals exploring their first repositories.",
-    features: ["3 repositories", "100 AI answers / month", "Basic commit context"],
-  },
-  {
-    name: "Pro",
-    price: "$29",
-    description: "For developers working across multiple active codebases.",
-    features: ["Unlimited repositories", "Chat with codebase", "Full PR and ownership history"],
-    featured: true,
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    description: "For teams that need security, controls, and support.",
-    features: ["SSO and audit support", "Custom onboarding", "Dedicated success channel"],
-  },
-];

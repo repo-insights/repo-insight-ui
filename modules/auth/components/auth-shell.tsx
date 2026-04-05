@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Hexagon } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
+import { ProductBrand, ProductWorkspaceBrand } from "@/shared/ui/product-brand";
 
 type AuthShellStat = {
   label: string;
@@ -52,19 +52,7 @@ export function AuthShell({
         <div className="grid w-full overflow-hidden rounded-[2rem] border border-border/80 bg-card/60 shadow-2xl backdrop-blur sm:min-h-[720px] lg:grid-cols-[1.05fr_0.95fr]">
           <section className="relative hidden border-r border-border/80 px-8 py-10 lg:flex lg:flex-col lg:justify-between xl:px-12">
             <div>
-              <div className="inline-flex items-center gap-3 rounded-full border border-border/80 bg-background/60 px-4 py-2">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-foreground">
-                  <Hexagon className="h-5 w-5 text-background" strokeWidth={2.5} />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold tracking-[0.2em] uppercase text-muted-foreground">
-                    Repo Insights
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    Workspace access for modern teams
-                  </p>
-                </div>
-              </div>
+              <ProductWorkspaceBrand />
 
               <div className="mt-14 max-w-lg space-y-6">
                 <p className="text-sm font-medium uppercase tracking-[0.22em] text-muted-foreground">
@@ -100,17 +88,7 @@ export function AuthShell({
 
           <section className="flex items-center justify-center px-4 py-6 sm:px-8 sm:py-10 lg:px-12">
             <div className={cn("w-full max-w-md animate-fade-in", className)}>
-              <div className="mb-8 flex items-center gap-3 lg:hidden">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-foreground">
-                  <Hexagon className="h-5 w-5 text-background" strokeWidth={2.5} />
-                </div>
-                <div>
-                  <p className="text-lg font-semibold tracking-tight">
-                    Repo Insights
-                  </p>
-                  <p className="text-xs text-muted-foreground">{eyebrow}</p>
-                </div>
-              </div>
+              <ProductBrand className="mb-8 lg:hidden" compact eyebrow={eyebrow} />
 
               <div className="rounded-[1.75rem] border border-border/80 bg-card px-6 py-7 shadow-xl sm:px-8 sm:py-8">
                 <div className="mb-6 space-y-3">

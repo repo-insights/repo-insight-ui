@@ -6,7 +6,7 @@ import { tokenStore } from "@/shared/lib/token-store";
 
 async function fetchPlans(): Promise<Plan[]> {
   const { data } = await apiClient.get<Plan[]>("/api/v1/plans/");
-  return data;
+  return [...data].sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
 }
 
 async function fetchSubscription(): Promise<Subscription> {
@@ -14,11 +14,11 @@ async function fetchSubscription(): Promise<Subscription> {
   return data;
 }
 
-export function usePlans() {
+export function usePlans(options?: { enabled?: boolean }) {
   return useQuery({
     queryKey: ["plans"],
     queryFn: fetchPlans,
-    enabled: !!tokenStore.get(),
+    enabled: options?.enabled ?? true,
     staleTime: 10 * 60 * 1000,
   });
 }

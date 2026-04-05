@@ -12,6 +12,11 @@
   --color-input: hsl(0 0% 10%);
   --color-primary: hsl(0 0% 98%);
   --color-primary-foreground: hsl(0 0% 9%);
+  --color-brand: hsl(188 100% 50%);
+  --color-brand-foreground: hsl(0 0% 8%);
+  --color-brand-soft: hsl(188 100% 50% / 0.12);
+  --color-brand-border: hsl(188 100% 50% / 0.22);
+  --color-brand-muted: hsl(188 55% 78%);
   --color-secondary: hsl(0 0% 10%);
   --color-secondary-foreground: hsl(0 0% 98%);
   --color-muted: hsl(0 0% 10%);
@@ -64,6 +69,104 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.interactive-tile {
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.interactive-tile::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow:
+    0 0 0 1px hsl(188 100% 50% / 0.24),
+    0 0 30px hsl(188 100% 50% / 0.12),
+    0 0 70px hsl(210 92% 60% / 0.08);
+  transition: opacity 180ms ease;
+}
+
+.interactive-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(
+      180px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+      hsl(188 100% 50% / 0.18),
+      transparent 58%
+    );
+  transition: opacity 180ms ease;
+}
+
+.interactive-tile:hover,
+.interactive-tile:focus-within {
+  border-color: hsl(188 100% 50% / 0.26);
+  box-shadow:
+    0 20px 40px hsl(0 0% 0% / 0.25),
+    0 0 0 1px hsl(188 100% 50% / 0.12);
+  transform: translateY(-2px);
+}
+
+.interactive-tile:hover::after,
+.interactive-tile:focus-within::after {
+  opacity: 1;
+}
+
+.interactive-tile:hover::before,
+.interactive-tile:focus-within::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interactive-tile,
+  .interactive-tile::after {
+    transition: none;
+  }
+
+  .interactive-tile:hover,
+  .interactive-tile:focus-within {
+    transform: none;
+  }
+}
+
+.product-mark {
+  display: inline-flex;
+  height: 1.75rem;
+  width: 1.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background:
+    radial-gradient(circle at top, hsl(188 100% 62% / 0.42), transparent 65%),
+    linear-gradient(135deg, hsl(188 100% 50%), hsl(210 92% 60%));
+  color: var(--color-brand-foreground);
+  box-shadow: 0 0 24px hsl(188 100% 50% / 0.24);
+}
+
+.brand-surface {
+  border-color: var(--color-brand-border);
+  background-color: var(--color-brand-soft);
+  color: var(--color-brand);
+}
+
+.brand-avatar {
+  border: 1px solid var(--color-brand-border);
+  background:
+    linear-gradient(135deg, hsl(188 100% 50% / 0.2), hsl(210 92% 60% / 0.22));
+  color: var(--color-brand-muted);
 }
 
 /* Skeleton shimmer */
