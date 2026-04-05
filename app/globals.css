@@ -95,22 +95,6 @@ body {
   transition: opacity 180ms ease;
 }
 
-.interactive-tile::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  opacity: 0;
-  background:
-    radial-gradient(
-      180px circle at var(--glow-x, 50%) var(--glow-y, 50%),
-      hsl(188 100% 50% / 0.18),
-      transparent 58%
-    );
-  transition: opacity 180ms ease;
-}
-
 .interactive-tile:hover,
 .interactive-tile:focus-within {
   border-color: hsl(188 100% 50% / 0.26);
@@ -122,11 +106,6 @@ body {
 
 .interactive-tile:hover::after,
 .interactive-tile:focus-within::after {
-  opacity: 1;
-}
-
-.interactive-tile:hover::before,
-.interactive-tile:focus-within::before {
   opacity: 1;
 }
 

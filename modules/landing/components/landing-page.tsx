@@ -42,43 +42,43 @@ const footerSections = [
   {
     title: "Company",
     links: [
-      { label: "About Repo Insights", href: "#" },
-      { label: "Our team", href: "#" },
-      { label: "Diversity", href: "#" },
-      { label: "Network map", href: "#" },
-      { label: "Impact", href: "#" },
+      { label: "About Repo Insights", href: "/company#about" },
+      { label: "Our team", href: "/company#team" },
+      { label: "Diversity", href: "/company#diversity" },
+      { label: "Network map", href: "/company#network-map" },
+      { label: "Impact", href: "/company#impact" },
     ],
   },
   {
     title: "Getting Started",
     links: [
-      { label: "Plans", href: "#pricing" },
-      { label: "Get a recommendation", href: "#" },
-      { label: "Request a demo", href: "#demo" },
-      { label: "Contact sales", href: "#" },
+      { label: "Plans", href: "/getting-started#plans" },
+      { label: "Get a recommendation", href: "/getting-started#recommendation" },
+      { label: "Request a demo", href: "/getting-started#request-demo" },
+      { label: "Contact sales", href: "/getting-started#contact-sales" },
     ],
   },
   {
     title: "Security",
     links: [
-      { label: "Privacy policy", href: "#" },
-      { label: "Terms and conditions", href: "#" },
-      { label: "Acceptable use policy", href: "#" },
+      { label: "Privacy policy", href: "/resources-center#privacy-policy" },
+      { label: "Terms and conditions", href: "/resources-center#terms-and-conditions" },
+      { label: "Acceptable use policy", href: "/resources-center#acceptable-use-policy" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Docs", href: "#" },
-      { label: "Support", href: "#" },
-      { label: "Status", href: "#" },
+      { label: "Docs", href: "/resources-center#docs" },
+      { label: "Support", href: "/support" },
+      { label: "Status", href: "/status" },
     ],
   },
   {
     title: "Contact",
     links: [
-      { label: "Contact us", href: "#" },
-      { label: "Suggestions", href: "#" },
+      { label: "Contact us", href: "/contact" },
+      { label: "Suggestions", href: "/suggestions" },
     ],
   },
 ] as const;
@@ -637,9 +637,15 @@ export function LandingPage() {
                 <p className="text-sm font-semibold text-white">{section.title}</p>
                 <div className="mt-4 flex flex-col gap-3 text-sm text-[#6b7280]">
                   {section.links.map((link) => (
-                    <a key={link.label} href={link.href} className="transition hover:text-white">
-                      {link.label}
-                    </a>
+                    link.href.startsWith("/") ? (
+                      <Link key={link.label} href={link.href} className="transition hover:text-white">
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a key={link.label} href={link.href} className="transition hover:text-white">
+                        {link.label}
+                      </a>
+                    )
                   ))}
                 </div>
               </div>
